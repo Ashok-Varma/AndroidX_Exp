@@ -6,8 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.ashokvarma.androidx.R;
 
@@ -17,6 +19,8 @@ import java.util.Map;
 
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.selection.ItemKeyProvider;
+import androidx.recyclerview.selection.OnContextClickListener;
+import androidx.recyclerview.selection.OperationMonitor;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
 
@@ -24,6 +28,7 @@ import androidx.recyclerview.selection.StorageStrategy;
 public class RecyclerSelectionActivity extends AppCompatActivity {
 
     SelectionTracker<String> selectionTracker;
+    Toolbar toolbarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +36,14 @@ public class RecyclerSelectionActivity extends AppCompatActivity {
         setContentView(R.layout.support_recycler_selection_act);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        toolbarView = findViewById(R.id.tool_bar);
+
         List<Pokemon> pokemonData = Pokemon.catchThemAll();
         PokemonRecyclerAdapter pokemonRecyclerAdapter = new PokemonRecyclerAdapter(this, pokemonData);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         // adapter must be set before building selectionTracker
         recyclerView.setAdapter(pokemonRecyclerAdapter);
+        recyclerView.addItemDecoration(new SpacesItemDecoration(this, R.dimen.pokemon_item_spacing));
 
         selectionTracker = new SelectionTracker.Builder<>(
                 "pokemon-selection",//unique id
@@ -44,24 +52,62 @@ public class RecyclerSelectionActivity extends AppCompatActivity {
                 new PokemonItemDetailsLookup(recyclerView),
                 StorageStrategy.createStringStorage())
                 .build();
-//                .withOnItemActivatedListener(new OnItemActivatedListener<String>() {
-//                    @Override
-//                    public boolean onItemActivated(@NonNull ItemDetailsLookup.ItemDetails<String> itemDetails, @NonNull MotionEvent motionEvent) {
-//                        return true;
-//                    }
-//                })
-//                .withBandPredicate(new BandPredicate() {
-//                    @Override
-//                    public boolean canInitiate(MotionEvent motionEvent) {
-//                        return true;
-//                    }
-//                })
 
         pokemonRecyclerAdapter.setSelectionTracker(selectionTracker);
+//        pokemonRecyclerAdapter.setPokemonClickListener(new PokemonRecyclerAdapter.PokemonClickListener() {
+//            @Override
+//            public void onCLick(Pokemon pokemon) {
+//                Toast.makeText(RecyclerSelectionActivity.this, pokemon.name + " clicked", Toast.LENGTH_LONG).show();
+//            }
+//        });
 
-
+        setUpViews();
     }
 
+    void setUpViews() {
+        toolbarView.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectionTracker.clearSelection();
+            }
+        });
+
+        updateViewsBasedOnSelection();
+        selectionTracker.addObserver(new SelectionTracker.SelectionObserver<String>() {
+            @Override
+            public void onSelectionChanged() {
+                updateViewsBasedOnSelection();
+                super.onSelectionChanged();
+            }
+
+            @Override
+            public void onSelectionRestored() {
+                updateViewsBasedOnSelection();
+                super.onSelectionRestored();
+            }
+        });
+    }
+
+    private void updateViewsBasedOnSelection() {
+        if (selectionTracker.hasSelection()) {
+            toolbarView.setVisibility(View.VISIBLE);
+            toolbarView.setTitle(selectionTracker.getSelection().size() + " selected");
+        } else {
+            toolbarView.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        selectionTracker.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        selectionTracker.onSaveInstanceState(outState);
+        super.onSaveInstanceState(outState);
+    }
 
     private static class PokemonItemKeyProvider extends ItemKeyProvider<String> {
 
@@ -114,4 +160,12 @@ public class RecyclerSelectionActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (selectionTracker.hasSelection()) {
+            selectionTracker.clearSelection();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

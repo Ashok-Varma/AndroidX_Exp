@@ -3,14 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="150dp"
-    android:orientation="horizontal">
+    android:background="#ececec"
+    android:orientation="horizontal"
+    tools:layout_margin="8dp">
 
     <View
         android:id="@+id/pokemon_list_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.8"
-        android:background="#ddffff" />
+        tools:background="#ddffff"
+        tools:layout_margin="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -32,11 +32,15 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
     private final LayoutInflater mLayoutInflater;
     @NonNull
     private final List<Pokemon> mPokemons;
+    private final int selectedItemMarginInPx;
     @Nullable
     private SelectionTracker<String> mSelectionTracker;
+    @Nullable
+    private PokemonClickListener mPokemonClickListener;
 
     PokemonRecyclerAdapter(@NonNull Context context, @NonNull List<Pokemon> pokemons) {
         mLayoutInflater = LayoutInflater.from(context);
+        selectedItemMarginInPx = context.getResources().getDimensionPixelSize(R.dimen.selected_item_margin);
         mPokemons = pokemons;
     }
 
@@ -44,10 +48,14 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
         this.mSelectionTracker = selectionTracker;
     }
 
+    public void setPokemonClickListener(@Nullable PokemonClickListener pokemonClickListener) {
+        this.mPokemonClickListener = pokemonClickListener;
+    }
+
     @NonNull
     @Override
     public PokemonViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new PokemonViewHolder(mLayoutInflater.inflate(R.layout.pokemon_list_item, viewGroup, false));
+        return new PokemonViewHolder(mLayoutInflater.inflate(R.layout.pokemon_list_item, viewGroup, false), selectedItemMarginInPx);
     }
 
     @Override
@@ -69,7 +77,7 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
         return mPokemons.size();
     }
 
-    static class PokemonViewHolder extends RecyclerView.ViewHolder {
+    class PokemonViewHolder extends RecyclerView.ViewHolder {
         final TextView numberView;
         final TextView nameView;
         final TextView typeView;
@@ -77,8 +85,9 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
         final ImageView imageView;
         final View bgColorView;
         private final PokemonItemDetails pokemonItemDetails;
+        private Pokemon pokemon;
 
-        PokemonViewHolder(@NonNull View itemView) {
+        PokemonViewHolder(@NonNull View itemView, int selectedItemMarginInPx) {
             super(itemView);
             numberView = itemView.findViewById(R.id.pokemon_list_number);
             nameView = itemView.findViewById(R.id.pokemon_list_name);
@@ -87,9 +96,19 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
             imageView = itemView.findViewById(R.id.pokemon_list_image);
             bgColorView = itemView.findViewById(R.id.pokemon_list_background);
             pokemonItemDetails = new PokemonItemDetails();
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mPokemonClickListener != null) {
+                        mPokemonClickListener.onCLick(pokemon);
+                    }
+                }
+            });
         }
 
         void bind(int position, boolean isSelected, Pokemon pokemon) {
+            this.pokemon = pokemon;
             pokemonItemDetails.position = position;
             pokemonItemDetails.identifier = pokemon.id;
 
@@ -104,8 +123,10 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
             itemView.setActivated(isSelected);
             if (isSelected) {
                 bgColorView.setAlpha(0.5f);
+                ((ViewGroup.MarginLayoutParams) bgColorView.getLayoutParams()).setMargins(selectedItemMarginInPx, selectedItemMarginInPx, selectedItemMarginInPx, selectedItemMarginInPx);
             } else {
                 bgColorView.setAlpha(0.1f);
+                ((ViewGroup.MarginLayoutParams) bgColorView.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
         }
 
@@ -131,12 +152,16 @@ public class PokemonRecyclerAdapter extends RecyclerView.Adapter<PokemonRecycler
 
         @Override
         public boolean inSelectionHotspot(@NonNull MotionEvent e) {
-            return false;
+            return true;
         }
 
         @Override
         public boolean inDragRegion(@NonNull MotionEvent e) {
             return true;
         }
+    }
+
+    interface PokemonClickListener {
+        void onCLick(Pokemon pokemon);
     }
 }
