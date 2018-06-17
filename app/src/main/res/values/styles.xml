@@ -1,0 +1,14 @@
+<resources>
+
+
+    <style name="DroidXTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <!--<item name="colorPrimaryLight">@color/primaryLightColor</item>-->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <!--<item name="colorSecondaryDark">@color/secondaryDarkColor</item>-->
+        <!--<item name="colorSecondaryLight">@color/secondaryLightColor</item>-->
+        <!--<item name="textColorPrimary">@color/primaryTextColor</item>-->
+        <!--<item name="textColorSecondary">@color/secondaryTextColor</item>-->
+    </style>
+</resources>
