@@ -1,7 +1,9 @@
 package com.ashokvarma.androidx.design.chip;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.chip.Chip;
+import android.support.design.chip.ChipGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -9,6 +11,9 @@ import android.widget.Toast;
 
 import com.ashokvarma.androidx.R;
 
+/**
+ * https://material.io/develop/android/components/chip/
+ */
 public class ChipActivity extends AppCompatActivity {
 
     @Override
@@ -29,6 +34,16 @@ public class ChipActivity extends AppCompatActivity {
         setListeners(chip4);
         setListeners(chip5);
         setListeners(chip6);
+
+        ChipGroup chipGroup = findViewById(R.id.single_select_chip);
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
+                // Handle the checked chip change.
+                Chip chip = group.findViewById(checkedId);
+                Toast.makeText(ChipActivity.this, chip.getChipText() + " : " + (chip.isChecked() ? "Checked" : "UnChecked"), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setListeners(final Chip chip) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,201 +7,350 @@
     android:orientation="vertical"
     tools:context=".design.chip.ChipActivity">
 
-    <TextView
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Chips" />
-
-    <android.support.design.chip.Chip
-        android:id="@+id/chip_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Basic Chip" />
-
-    <android.support.design.chip.Chip
-        android:id="@+id/chip_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Chip Icon"
-        app:chipIcon="@drawable/ic_adb_primary_24dp" />
-
-    <android.support.design.chip.Chip
-        android:id="@+id/chip_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Close Icon"
-        app:closeIcon="@drawable/ic_close_white_24dp"
-        app:closeIconEnabled="true" />
-
-    <android.support.design.chip.Chip
-        android:id="@+id/chip_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:checkable="true"
-        android:text="Checkable Chip"
-        app:checkedIcon="@drawable/ic_check_primary_24dp"
-        app:chipIcon="@drawable/ic_check_white_24dp" />
-
-    <android.support.design.chip.Chip
-        android:id="@+id/chip_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:checkable="true"
-        android:text="Checkable Chip v2"
-        app:checkedIcon="@drawable/ic_check_primary_24dp" />
-
-    <android.support.design.chip.Chip
-        android:id="@+id/chip_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:checkable="true"
-        android:text="All In One :p"
-        app:checkedIcon="@drawable/ic_check_primary_24dp"
-        app:chipIcon="@drawable/ic_check_white_24dp"
-        app:closeIcon="@drawable/ic_close_white_24dp"
-        app:closeIconEnabled="true" />
-
-    <TextView
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Chip Group" />
-
-    <android.support.design.chip.ChipGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        app:chipSpacingHorizontal="16dp"
-        app:chipSpacingVertical="8dp">
+        android:orientation="vertical"
+        tools:context=".design.chip.ChipActivity">
 
-        <android.support.design.chip.Chip
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Test" />
+            android:padding="16dp"
+            android:text="Chips" />
 
         <android.support.design.chip.Chip
+            android:id="@+id/chip_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No" />
+            android:layout_margin="8dp"
+            android:text="Basic Chip" />
 
         <android.support.design.chip.Chip
+            android:id="@+id/chip_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Text" />
+            android:layout_margin="8dp"
+            android:text="Chip Icon"
+            app:chipIcon="@drawable/ic_adb_primary_24dp" />
 
         <android.support.design.chip.Chip
+            android:id="@+id/chip_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chip" />
+            android:layout_margin="8dp"
+            android:text="Close Icon"
+            app:closeIcon="@drawable/ic_close_white_24dp"
+            app:closeIconEnabled="true" />
 
         <android.support.design.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <android.support.design.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <android.support.design.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <android.support.design.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <android.support.design.chip.Chip
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <android.support.design.chip.Chip
+            android:id="@+id/chip_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dummy" />
+            android:layout_margin="8dp"
+            android:checkable="true"
+            android:text="Checkable Chip"
+            app:checkedIcon="@drawable/ic_check_primary_24dp"
+            app:chipIcon="@drawable/ic_check_white_24dp" />
 
-    </android.support.design.chip.ChipGroup>
+        <android.support.design.chip.Chip
+            android:id="@+id/chip_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:checkable="true"
+            android:text="Checkable Chip v2"
+            app:checkedIcon="@drawable/ic_check_primary_24dp" />
 
-    <TextView
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Chip Group in HorizontalScrollView" />
+        <android.support.design.chip.Chip
+            android:id="@+id/chip_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:checkable="true"
+            android:text="All In One :p"
+            app:checkedIcon="@drawable/ic_check_primary_24dp"
+            app:chipIcon="@drawable/ic_check_white_24dp"
+            app:closeIcon="@drawable/ic_close_white_24dp"
+            app:closeIconEnabled="true" />
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:scrollbarSize="1dp">
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Chip Group Single Selection" />
 
         <android.support.design.chip.ChipGroup
-            android:layout_width="wrap_content"
+            android:id="@+id/single_select_chip"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            app:chipSpacing="8dp">
-            <!--single line is true if it is in Horizontal scroll view automatically-->
+            app:checkedChip="@id/chip_default_check"
+            app:chipSpacingHorizontal="16dp"
+            app:chipSpacingVertical="8dp"
+            app:singleSelection="true">
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chips" />
+                android:checkable="true"
+                android:text="android" />
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="are" />
-
-            <android.support.design.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="awesome" />
-
-            <android.support.design.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="." />
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tada" />
+                android:checkable="true"
+                android:text="design" />
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="scroll" />
+                android:checkable="true"
+                android:text="." />
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="scroll" />
+                android:checkable="true"
+                android:text="support" />
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="scroll" />
+                android:checkable="true"
+                android:text="." />
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="scroll" />
+                android:checkable="true"
+                android:text="chip" />
+
 
             <android.support.design.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="scroll" />
+                android:checkable="true"
+                android:text="." />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Chip" />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="NEW" />
+
+            <android.support.design.chip.Chip
+                android:id="@+id/chip_default_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="androidx" />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="." />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="design" />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="." />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="chip" />
+
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="." />
+
+            <android.support.design.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="Chip" />
 
         </android.support.design.chip.ChipGroup>
-    </HorizontalScrollView>
 
-</LinearLayout>
+        <TextView
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Chip Group in HorizontalScrollView" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:scrollbarSize="1dp">
+
+            <android.support.design.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:chipSpacing="8dp">
+                <!--single line is true if it is in Horizontal scroll view automatically-->
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Chips" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="are" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="awesome" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="android" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="design" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="support" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="chip" />
+
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Chip" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="NEW" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="androidx" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="design" />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="chip" />
+
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="." />
+
+                <android.support.design.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Chip" />
+
+            </android.support.design.chip.ChipGroup>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
