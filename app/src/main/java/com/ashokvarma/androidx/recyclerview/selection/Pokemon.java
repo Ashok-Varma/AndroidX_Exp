@@ -1,4 +1,4 @@
-package com.ashokvarma.androidx.support;
+package com.ashokvarma.androidx.recyclerview.selection;
 
 import java.util.ArrayList;
 import java.util.List;

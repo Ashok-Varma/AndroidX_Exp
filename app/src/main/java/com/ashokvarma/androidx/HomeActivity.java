@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ashokvarma.androidx.support.RecyclerSelectionActivity;
+import com.ashokvarma.androidx.recyclerview.selection.RecyclerSelectionActivity;
 
 public class HomeActivity extends AppCompatActivity {
 

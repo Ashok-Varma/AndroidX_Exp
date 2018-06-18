@@ -1,4 +1,4 @@
-package com.ashokvarma.androidx.support;
+package com.ashokvarma.androidx.recyclerview.selection;
 
 import android.content.Context;
 import android.graphics.Rect;
