@@ -14,7 +14,7 @@
         android:background="?colorPrimary"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
         android:visibility="gone"
-        app:navigationIcon="@drawable/ic_close_black_24dp"
+        app:navigationIcon="@drawable/ic_close_white_24dp"
         app:title="0 selected" />
 
     <android.support.v7.widget.RecyclerView

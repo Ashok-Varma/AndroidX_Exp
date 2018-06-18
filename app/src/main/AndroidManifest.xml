@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".recyclerview.selection.RecyclerSelectionActivity" />
+        <activity android:name=".design.chip.ChipActivity"></activity>
     </application>
 
 </manifest>
