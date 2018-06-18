@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ashokvarma.androidx.support.RecyclerSelectionActivity;
+import com.ashokvarma.androidx.design.chip.ChipActivity;
+import com.ashokvarma.androidx.recyclerview.selection.RecyclerSelectionActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -18,6 +19,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, RecyclerSelectionActivity.class));
+            }
+        });
+
+        findViewById(R.id.home_button_design_chips).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ChipActivity.class));
             }
         });
 

@@ -1,4 +1,4 @@
-package com.ashokvarma.androidx.support;
+package com.ashokvarma.androidx.recyclerview.selection;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.ashokvarma.androidx.R;
 
@@ -19,8 +18,6 @@ import java.util.Map;
 
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.selection.ItemKeyProvider;
-import androidx.recyclerview.selection.OnContextClickListener;
-import androidx.recyclerview.selection.OperationMonitor;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
 
