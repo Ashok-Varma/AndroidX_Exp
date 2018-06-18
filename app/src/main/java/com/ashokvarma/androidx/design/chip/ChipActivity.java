@@ -41,7 +41,8 @@ public class ChipActivity extends AppCompatActivity {
             public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
                 // Handle the checked chip change.
                 Chip chip = group.findViewById(checkedId);
-                Toast.makeText(ChipActivity.this, chip.getChipText() + " : " + (chip.isChecked() ? "Checked" : "UnChecked"), Toast.LENGTH_SHORT).show();
+                if (chip != null)
+                    Toast.makeText(ChipActivity.this, chip.getChipText() + " : " + (chip.isChecked() ? "Checked" : "UnChecked"), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -59,6 +60,7 @@ public class ChipActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ChipActivity.this, chip.getChipText() + " : Close Clicked", Toast.LENGTH_SHORT).show();
+                chip.setVisibility(View.GONE);
             }
         });
 
