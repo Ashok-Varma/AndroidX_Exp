@@ -19,7 +19,12 @@
         </activity>
         <activity android:name=".recyclerview.selection.RecyclerSelectionActivity" />
         <activity android:name=".design.chip.ChipActivity" />
-        <activity android:name=".slice.SliceActivity"></activity>
+        <activity android:name=".slice.SliceActivity" />
+
+        <!--<provider-->
+        <!--android:name=".slice.AndroidXSliceProvider"-->
+        <!--android:authorities="com.ashokvarma.androidx"-->
+        <!--android:exported="true" />-->
     </application>
 
 </manifest>

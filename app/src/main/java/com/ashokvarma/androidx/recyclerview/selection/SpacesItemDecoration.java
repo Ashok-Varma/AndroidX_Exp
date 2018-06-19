@@ -2,10 +2,11 @@ package com.ashokvarma.androidx.recyclerview.selection;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.DimenRes;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Class description
@@ -22,11 +23,11 @@ public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
     private boolean padHorizontal = true;
     private boolean recyclerPaddingSet = false;
 
-    public SpacesItemDecoration(int space) {
+    SpacesItemDecoration(int space) {
         this.halfSpace = space / 2;
     }
 
-    public SpacesItemDecoration(@NonNull Context context, @DimenRes int spaceResId) {
+    SpacesItemDecoration(@NonNull Context context, @DimenRes int spaceResId) {
         this(context.getResources().getDimensionPixelSize(spaceResId));
     }
 

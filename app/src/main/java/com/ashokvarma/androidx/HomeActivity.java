@@ -2,11 +2,13 @@ package com.ashokvarma.androidx;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.ashokvarma.androidx.design.chip.ChipActivity;
 import com.ashokvarma.androidx.recyclerview.selection.RecyclerSelectionActivity;
+import com.ashokvarma.androidx.slice.SliceActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -29,5 +31,18 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.home_button_silce).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, SliceActivity.class));
+            }
+        });
+
+        findViewById(R.id.home_button_crash).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Integer.parseInt("Thanos");
+            }
+        });
     }
 }
