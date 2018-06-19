@@ -16,6 +16,8 @@ import com.ashokvarma.androidx.R;
  */
 public class ChipActivity extends AppCompatActivity {
 
+    Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +44,24 @@ public class ChipActivity extends AppCompatActivity {
                 // Handle the checked chip change.
                 Chip chip = group.findViewById(checkedId);
                 if (chip != null)
-                    Toast.makeText(ChipActivity.this, chip.getChipText() + " : " + (chip.isChecked() ? "Checked" : "UnChecked"), Toast.LENGTH_SHORT).show();
+                    showMessage(chip.getChipText() + " : " + (chip.isChecked() ? "Checked" : "UnChecked"));
+
             }
         });
+    }
+
+    void showMessage(String message) {
+        if (toast != null)
+            toast.cancel();
+        toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
+        toast.show();
     }
 
     private void setListeners(final Chip chip) {
         chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ChipActivity.this, chip.getChipText() + " : " + (b ? "Checked" : "UnChecked"), Toast.LENGTH_SHORT).show();
+                showMessage(chip.getChipText() + " : " + (b ? "Checked" : "UnChecked"));
             }
         });
 
@@ -59,16 +69,16 @@ public class ChipActivity extends AppCompatActivity {
         chip.setOnCloseIconClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ChipActivity.this, chip.getChipText() + " : Close Clicked", Toast.LENGTH_SHORT).show();
+                showMessage(chip.getChipText() + " : Close Button Clicked");
                 chip.setVisibility(View.GONE);
             }
         });
 
-        chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(ChipActivity.this, chip.getChipText() + " : Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        chip.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                showMessage(chip.getChipText() + " : Clicked");
+//            }
+//        });
     }
 }
