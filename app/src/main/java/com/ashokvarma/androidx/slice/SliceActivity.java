@@ -1,10 +1,12 @@
 package com.ashokvarma.androidx.slice;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.ashokvarma.androidx.R;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+// install https://github.com/googlesamples/android-SliceViewer/releases
 public class SliceActivity extends AppCompatActivity {
 
     @Override

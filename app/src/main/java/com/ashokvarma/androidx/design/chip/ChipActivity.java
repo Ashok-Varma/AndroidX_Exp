@@ -1,15 +1,16 @@
 package com.ashokvarma.androidx.design.chip;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.design.chip.Chip;
-import android.support.design.chip.ChipGroup;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.ashokvarma.androidx.R;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+
+import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * https://material.io/develop/android/components/chip/
